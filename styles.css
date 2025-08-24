@@ -1,0 +1,363 @@
+/* === ESTILOS GENERALES === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fuente limpia similar a la imagen */
+    line-height: 1.6;
+    color: #333; /* Color de texto principal */
+    background-color: #f9f9f9; /* Fondo ligeramente grisáceo */
+}
+
+h1, h2, h3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: #222; /* Títulos un poco más oscuros */
+}
+
+a {
+    color: #d9539f; /* Un tono rosa/fucsia (puedes cambiarlo por el oficial de Mary Kay) */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Evita espacio extra debajo de las imágenes */
+}
+
+/* === HEADER === */
+header {
+    background-color: #fff; /* Fondo blanco para el header */
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee; /* Línea sutil de separación */
+    display: flex;
+    justify-content: space-between; /* Separa el título de la navegación */
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0; /* Quitar margen inferior del h1 en el header */
+    color: #d9539f; /* Color del título */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 1.5rem; /* Espacio entre elementos de navegación */
+}
+
+header nav ul li a {
+    text-transform: uppercase; /* Mayúsculas como en la imagen */
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #555; /* Color de los enlaces de navegación */
+}
+
+header nav ul li a:hover {
+    color: #d9539f; /* Color al pasar el mouse */
+    text-decoration: none;
+}
+
+/* === MAIN CONTENT & SECTIONS === */
+/* Ajusta el padding si usas fullpage.js o elimínalo si controlas el padding de otra forma */
+.fullpage-slide, section {
+    padding: 2rem 5%; /* Padding generoso en los lados */
+    margin-bottom: 2rem; /* Espacio entre secciones */
+    text-align: center; /* Centrar títulos de sección por defecto */
+}
+
+/* === SECCIÓN PRODUCTOS === */
+#productos h2 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem; /* Más espacio después del título de sección */
+    color: #444;
+}
+
+.lista-productos {
+    display: grid;
+    /* Crea columnas responsivas: se ajustan automáticamente. Mínimo 200px, máximo 1 fracción del espacio */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem; /* Espacio entre las tarjetas de producto */
+    text-align: center; /* Centrar contenido dentro de cada tarjeta */
+}
+
+.producto {
+    background-color: #fff; /* Fondo blanco para cada tarjeta */
+    padding: 1.5rem 1rem; /* Padding interno */
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    border-radius: 4px; /* Esquinas ligeramente redondeadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+    display: flex;
+    flex-direction: column; /* Apilar elementos verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: space-between; /* Distribuir espacio vertical */
+    height: 100%; /* Para que las tarjetas en la misma fila tengan la misma altura */
+    transition: box-shadow 0.3s ease; /* Efecto suave al pasar el mouse */
+}
+
+.producto:hover {
+     box-shadow: 0 4px 10px #d9539f; /* Sombra más pronunciada al pasar el mouse */
+}
+
+.producto img {
+    max-height: 150px; /* Altura máxima para la imagen */
+    width: auto; /* Ancho automático para mantener proporción */
+    object-fit: contain; /* Asegura que toda la imagen sea visible */
+    margin-bottom: 1rem; /* Espacio debajo de la imagen */
+}
+
+.producto h3 { /* Nombre del producto */
+    font-size: 0.95rem; /* Tamaño de fuente para el nombre */
+    font-weight: normal; /* Fuente normal, no negrita */
+    margin-bottom: 0.5rem;
+    color: #333;
+    /* Si añadieras la marca, iría aquí o encima, con otro estilo */
+}
+
+.producto .precio {
+    font-size: 1.1rem;
+    font-weight: bold; /* Precio en negrita */
+    color: #000; /* Precio en negro */
+    margin-bottom: 1rem; /* Espacio antes del botón/descripción */
+}
+
+.producto .descripcion.oculto {
+    display: none; /* Mantiene la descripción oculta */
+}
+
+.producto .ver-detalles-btn { /* Botón "Ver Detalles" */
+    background-color: #555; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Empuja el botón hacia abajo si hay espacio extra */
+}
+
+.producto .ver-detalles-btn:hover {
+    background-color: #d9539f; /* Color rosa al pasar el mouse */
+}
+
+/* === SECCIÓN SOBRE MARYKAY === */
+#Sobre_Marykay .sobre-marykay-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+    align-items: center; /* Alinea verticalmente imagen y texto */
+    gap: 2rem; /* Espacio entre imagen y texto */
+    text-align: left; /* Alineación izquierda para el texto descriptivo */
+    max-width: 1000px; /* Ancho máximo para el contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    background-color: #fff; /* Fondo blanco para esta sección */
+    padding: 2rem; /* Padding interno */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#Sobre_Marykay .sobre-marykay-imagen {
+    flex: 1 1 300px; /* Permite que la imagen ocupe espacio, base 300px */
+}
+
+#Sobre_Marykay .sobre-marykay-imagen img {
+    border-radius: 5px; /* Redondear esquinas de la imagen */
+}
+
+#Sobre_Marykay .sobre-marykay-descripcion {
+    flex: 2 1 400px; /* Permite que el texto ocupe más espacio, base 400px */
+}
+
+#Sobre_Marykay .sobre-marykay-descripcion p {
+    font-size: 0.95rem;
+    color: #555; /* Texto un poco más claro */
+    line-height: 1.7;
+}
+
+/* === SECCIÓN CONTACTO === */
+#contacto {
+    background-color: #fff; /* Fondo blanco */
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 2rem auto; /* Centrar sección */
+}
+
+#contacto h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#contacto p { /* Estilo para el párrafo introductorio */
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+#contacto .redes { /* Contenedor para cada ítem de red social */
+    display: inline-flex; /* Para alinear imagen y texto */
+    align-items: center;
+    margin: 0.5rem 1rem; /* Espacio alrededor de cada ítem */
+    padding: 0.5rem 1rem;
+    border: 1px solid #eee;
+    border-radius: 25px; /* Bordes redondeados tipo píldora */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#contacto .redes:hover {
+    background-color: #f8f8f8;
+    border-color: #ddd;
+}
+
+#contacto .redes img {
+    width: 24px; /* Tamaño de los iconos */
+    height: 24px;
+    margin-right: 0.75rem; /* Espacio entre icono y texto */
+}
+
+#contacto .redes a {
+    font-weight: bold;
+    color: #333; 
+    text-decoration: none;
+}
+
+#contacto p.redes#wsp:hover { 
+    background-color: #25D366; 
+    border-color: #128C7E;    
+}
+#contacto p.redes#wsp:hover a { 
+    color: #fff;              
+}
+#contacto p.redes#ig:hover {
+    background-color: #E1306C; 
+    border-color: #C13584;
+}
+#contacto p.redes#ig:hover a {
+    color: #fff;
+}
+#contacto p.redes#fc:hover {
+    background-color: #1877F2; 
+    border-color: #1055a6;
+}
+#contacto p.redes#fc:hover a {
+    color: #fff;
+}
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 3rem; /* Espacio considerable antes del footer */
+    background-color: #333; /* Footer oscuro */
+    color: #ccc; /* Texto claro en el footer */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 0;
+    display: flex; /* Para alinear el logo con el texto */
+    justify-content: center;
+    align-items: center;
+}
+
+footer a {
+    color: #fff; /* Enlaces blancos en el footer */
+    font-weight: bold;
+    margin: 0 0.3rem; /* Pequeño espacio alrededor del enlace del desarrollador */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .logo-footer {
+    width: 20px; /* Tamaño del logo en el footer */
+    height: auto;
+    margin-left: 0.5rem; /* Espacio a la izquierda del logo */
+    vertical-align: middle; /* Alinear verticalmente con el texto */
+}
+
+/* === RESPONSIVE DESIGN (AJUSTES PARA MÓVILES) === */
+
+@media (max-width: 768px) { /* Ajustes generales para tablets y móviles grandes */
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    header h1 {
+        margin-bottom: 1rem;
+    }
+    header nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    header nav ul li {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+    }
+
+    /* --- AJUSTES PARA LA CUADRÍCULA DE PRODUCTOS EN MÓVIL --- */
+    .lista-productos {
+        /* ¡Forzar DOS columnas en lugar de auto-fit o una! */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem; /* Reducir el espacio entre productos */
+    }
+
+    .producto {
+        padding: 0.8rem 0.5rem; /* Reducir el padding interno de la tarjeta */
+    }
+
+    .producto img {
+        max-height: 100px; /* Reducir altura máxima de la imagen */
+    }
+
+    .producto h3 { /* Nombre del producto */
+        font-size: 0.85rem; /* Reducir tamaño de fuente del nombre */
+        margin-bottom: 0.3rem;
+    }
+
+    .producto .precio {
+        font-size: 0.95rem; /* Reducir tamaño de fuente del precio */
+        margin-bottom: 0.5rem;
+    }
+
+    .producto .ver-detalles-btn { /* Botón "Ver Detalles" */
+        padding: 0.4rem 0.8rem; /* Reducir padding del botón */
+        font-size: 0.7rem; /* Reducir tamaño de fuente del botón */
+    }
+    /* --- FIN AJUSTES PRODUCTOS MÓVIL --- */
+
+
+    #Sobre_Marykay .sobre-marykay-container {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    #contacto .redes {
+        display: flex;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+.producto h3 {
+    font-size: 0.8rem;
+    }
+    .producto .precio {
+    font-size: 0.9rem;
+    }
+}
